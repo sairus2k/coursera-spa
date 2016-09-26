@@ -29,7 +29,7 @@
             { name: 'candies', quantity: 6 },
             { name: 'chocolate', quantity: 3 },
             { name: 'beer', quantity: 2 },
-            { name: 'vodka', quantity: 8 }
+            { name: 'chips', quantity: 8 }
         ];
         service.getTobuyList = function () {
             return tobuyList;
