@@ -1,0 +1,62 @@
+<div class="container">
+    <form name="signupForm" ng-submit="$ctrl.submit(signupForm)" novalidate>
+        <div class="form-group">
+            <label for="signupInputFirstName">First Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="signupInputFirstName"
+                   name="firstName"
+                   ng-model="$ctrl.firstName">
+        </div>
+        <div class="form-group">
+            <label for="signupInputLastName">Last Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="signupInputLastName"
+                   name="lastName"
+                   ng-model="$ctrl.lastName">
+        </div>
+        <div class="form-group">
+            <label for="signupInputEmail">Email</label>
+            <input type="email"
+                   class="form-control"
+                   id="signupInputEmail"
+                   name="email"
+                   ng-model="$ctrl.email"
+                   required>
+            <span ng-if="signupForm.email.$error.required && signupForm.email.$touched">
+                Please, provide your email
+            </span>
+            <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+                Must be a valid email address
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="signupInputPhone">Phone</label>
+            <input type="tel"
+                   class="form-control"
+                   id="signupInputPhone"
+                   name="phone"
+                   ng-model="$ctrl.phone">
+        </div>
+        <div class="form-group">
+            <label for="signupInputFavoriteDish">Favorite Dish</label>
+            <input type="text"
+                   class="form-control"
+                   id="signupInputFavoriteDish"
+                   name="dish"
+                   ng-model="$ctrl.favorite"
+                   ng-model-options="{ updateOn: 'blur' }"
+                   ng-remote-validate="menu_items">
+            <span ng-if="signupForm.dish.$invalid && signupForm.dish.$touched">
+                No such menu number exists
+            </span>
+        </div>
+        <button class="btn btn-default"
+                type="submit"
+                ng-disabled="signupForm.$invalid">
+            Submit
+        </button>
+        <div ng-if="$ctrl.success">Your information has been saved</div>
+    </form>
+</div>
